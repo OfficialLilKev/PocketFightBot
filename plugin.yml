@@ -1,9 +1,16 @@
 name: PocketFightBot
-version: 1.0.0
-api: 3.0.0
+version: 2.0.0
+api: [5.0.0]
 main: PocketFightBot\Main
-author: PocketDevelopment
+author: PocketFightBot, OfficialLilKev
+description: Advanced PvP Practice Bot
 
 commands:
-  npc:
-    description: ""
+  fightbot:
+    description: Spawn a PvP bot to practice against
+    permission: fightbot.cmd
+
+permissions:
+  fightbot.cmd:
+    default: op
+    description: Allows spawning the fight bot
