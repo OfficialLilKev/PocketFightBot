@@ -1,0 +1,12 @@
+---
+# Bot Configuration
+bot_health: 20
+bot_speed: 0.45
+bot_damage: 6.0
+
+# How far away can the bot hit you? (3.0 is standard survival)
+reach_distance: 3.5
+
+# Should the bot knock players back?
+enable_kb: true
+...
