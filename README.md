@@ -1,53 +1,59 @@
-# 🚀 LaunchPadPlugin (v2.0)
+# ⚔️ PocketFightBot (v2.0)
 
-**LaunchPadPlugin** is a lightweight, physics-based launchpad solution for PocketMine-MP 5.0+. It replaces old, glitchy teleportation methods with smooth velocity calculations, "throwing" players through the air for a realistic parkour or hub experience.
+**PocketFightBot** is a high-performance PvP training plugin for PocketMine-MP 5.0+. Unlike standard NPC plugins, this bot features advanced combat AI that strafes, jumps, and mimics real player movement physics to provide a genuine PvP challenge.
 
-### ✨ Key Features
+### 🚀 Key Features
 
-* **Physics-Based Launching:** Uses `setMotion()` vectors instead of teleportation. Players arc through the air smoothly.
-* **Fully Configurable:** Adjust the **Forward Force** and **Vertical Lift** to get the perfect jump arc for your lobby.
-* **Multi-Block Support:** Define any block as a launchpad in the config (e.g., specific pressure plates, slime blocks, etc.).
-* **Audio Feedback:** Plays a sound effect (Ghast Shoot) upon launch (toggleable).
-* **Spam Prevention:** Built-in cooldowns prevent players from getting stuck or crashing the server by standing on the plate.
+* **🧠 Advanced Combat AI:** The bot doesn't just walk in a straight line. It strafes, circles the player, and utilizes "reach" logic to space itself properly during fights.
+* **👤 Skin Cloning:** The bot automatically steals the skin of the player who spawns it, creating a perfect "Doppelgänger" effect.
+* **⚡ Physics-Based Movement:** Gone are the jittery teleports. This bot uses calculated motion vectors for smooth, reliable knockback and jumping.
+* **🩹 Dynamic Health Tags:** The nametag updates in real-time to show the bot's current HP during the fight.
+* **⚙️ Fully Configurable:** Control the bot's speed, damage, reach, and health via a simple config file.
 
 ---
 
 ### 📥 Installation
 
-1. Download the plugin `.phar` or source code.
-2. Place it into your server's `/plugins/` folder.
-3. Restart the server to generate the default configuration.
+1. Download the **PocketFightBot** plugin `.phar` or folder.
+2. Upload it to your server's `/plugins/` folder.
+3. Restart your server.
+4. (Optional) Edit the `plugin_data/PocketFightBot/config.yml` file to tweak the difficulty.
+
+---
+
+### 🎮 Usage
+
+To start a fight, simply use the command below. The bot will spawn at your location and immediately begin tracking the nearest player (you).
+
+**Command:**
+`/fightbot <name>`
+
+**Example:**
+`/fightbot PracticeBot` — *Spawns a bot named "PracticeBot" with your skin.*
+
+> **Note:** The bot will automatically target the nearest player within 15 blocks. If you run away or fly out of range, it will lose interest.
 
 ---
 
 ### ⚙️ Configuration
 
-You can find the `config.yml` in `plugin_data/LaunchPadPlugin/`.
+You can adjust the difficulty of the bot in `config.yml`.
 
 ```yaml
-# LaunchPadPlugin Configuration
+# PocketFightBot Configuration
 
-# How strong is the forward push? (Higher = Further distance)
-# Recommended: 1.5 - 3.0
-force: 2.0
+# The bot's starting HP (20 = 10 hearts)
+bot_health: 20
 
-# How much upward lift should they get? (Higher = Higher arc)
-# Recommended: 0.5 - 1.5
-vertical_lift: 0.8
+# How fast the bot moves (0.45 is slightly faster than walking)
+bot_speed: 0.45
 
-# Should a sound play when launched?
-sound: true
+# How much damage the bot deals per hit (in HP)
+bot_damage: 6.0
 
-# List of blocks that act as launchpads.
-# Use standard Minecraft block names (e.g., oak_pressure_plate).
-blocks:
-  - "oak_pressure_plate"
-  - "spruce_pressure_plate"
-  - "heavy_weighted_pressure_plate"
+# The distance (in blocks) the bot can hit you from
+# 3.0 is standard survival, 3.5 - 4.0 is "sweaty" PvP
+reach_distance: 3.5
 
-📝 Requirements
-PocketMine-MP: 5.0.0 or higher
-
-PHP: 8.1+
-
-Developed for the PocketMine Community.
+# If set to true, the bot deals knockback on hits
+enable_kb: true
